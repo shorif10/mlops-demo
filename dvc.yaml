@@ -1,0 +1,11 @@
+stages:
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+    - data/boston_housing.csv
+    - src/preprocess.py
+    outs:
+    - data/X_test.csv
+    - data/X_train.csv
+    - data/y_test.csv
+    - data/y_train.csv
