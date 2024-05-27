@@ -1,0 +1,5 @@
+outs:
+- md5: f320d9fe1aa479cd532f9a55562ea7da
+  size: 36240
+  hash: md5
+  path: boston_housing.csv
