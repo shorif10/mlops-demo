@@ -1,0 +1,55 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+    - path: data/boston_housing.csv
+      hash: md5
+      md5: f320d9fe1aa479cd532f9a55562ea7da
+      size: 36240
+    - path: src/preprocess.py
+      hash: md5
+      md5: 7135f584d1b98c4bf78f49d5d2e19930
+      size: 716
+    outs:
+    - path: data/X_test.csv
+      hash: md5
+      md5: f47a6d043996a96b3692361b585fa82a
+      size: 6936
+    - path: data/X_train.csv
+      hash: md5
+      md5: f2e240fd929982856dc3ddcf87922634
+      size: 27252
+    - path: data/y_test.csv
+      hash: md5
+      md5: 86c9881381ebc15cc8efab332faac415
+      size: 613
+    - path: data/y_train.csv
+      hash: md5
+      md5: 94e96fe1cae205a940220a6a11738cea
+      size: 2411
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/X_test.csv
+      hash: md5
+      md5: f47a6d043996a96b3692361b585fa82a
+      size: 6936
+    - path: data/X_train.csv
+      hash: md5
+      md5: f2e240fd929982856dc3ddcf87922634
+      size: 27252
+    - path: data/y_test.csv
+      hash: md5
+      md5: 86c9881381ebc15cc8efab332faac415
+      size: 613
+    - path: data/y_train.csv
+      hash: md5
+      md5: 94e96fe1cae205a940220a6a11738cea
+      size: 2411
+    outs:
+    - path: model
+      hash: md5
+      md5: 101c48049ba2076359f6d7a686f9fd48.dir
+      size: 1183
+      nfiles: 1
